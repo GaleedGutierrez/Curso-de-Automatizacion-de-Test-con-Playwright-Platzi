@@ -7,6 +7,8 @@
 		"lint": "npx eslint ./**/*.{js,mjs,cjs,ts,mts,cts}",
 		"lint:fix": "npx eslint --fix ./**/*.{js,mjs,cjs,ts,mts,cts}",
 		"test": "npx playwright test",
+		"test:headed": "npx playwright test --headed",
+		"codegen": "npx playwright codegen",
 		"prepare": "husky"
 	},
 	"keywords": [
