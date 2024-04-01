@@ -1,0 +1,49 @@
+{
+	"compilerOptions": {
+		// "module": "ESNext",
+		"module": "NodeNext",
+		"target": "ESNext",
+		"useDefineForClassFields": true,
+		"lib": ["ES2023", "DOM", "DOM.Iterable", "WebWorker", "ESNext"],
+		"skipLibCheck": true,
+
+		/* Bundler mode */
+		// This is from Vite. Frontend?
+		// "moduleResolution": "Bundler",
+		// "resolveJsonModule": true,
+		"allowImportingTsExtensions": true,
+		"isolatedModules": true,
+		"noEmit": true,
+		"removeComments": true,
+
+		/* Linting */
+		"strict": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"noFallthroughCasesInSwitch": true,
+		"esModuleInterop": true,
+		"noImplicitReturns": true,
+		"forceConsistentCasingInFileNames": true,
+
+		/* Interop Constraints */
+		"allowSyntheticDefaultImports": true,
+		"baseUrl": "./"
+	},
+
+	"parserOptions": {
+		"project": true
+	},
+
+	"ts-node": {
+		"transpileOnly": true,
+		"files": true,
+		"compilerOptions": {
+			"module": "ES2022"
+		}
+	},
+	"types": [],
+
+	"extends": "@tsconfig/recommended/tsconfig.json",
+	"include": ["./**/*.ts"],
+	"exclude": ["node_modules"]
+}
