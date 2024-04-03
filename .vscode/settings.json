@@ -19,6 +19,6 @@
 		"titleBar.inactiveForeground": "#e7e7e799"
 	},
 	"peacock.color": "#832561",
-	"conventionalCommits.scopes": ["dev-env-config"],
+	"conventionalCommits.scopes": ["dev-env-config", "github-actions"],
 	"cSpell.words": ["codegen"]
 }
