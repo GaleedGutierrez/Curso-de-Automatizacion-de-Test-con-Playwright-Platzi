@@ -384,11 +384,6 @@ module.exports = {
 		'@stylistic/padding-line-between-statements': [
 			'error',
 			{
-				blankLine: 'any',
-				prev: ['const', 'let', 'var'],
-				next: ['const', 'let', 'var'],
-			},
-			{
 				blankLine: 'always',
 				prev: [
 					'directive',
@@ -442,6 +437,17 @@ module.exports = {
 				next: 'function-overload',
 			},
 			{
+				blankLine: 'any',
+				prev: ['const', 'let', 'var'],
+				next: ['const', 'let', 'var'],
+			},
+			{ blankLine: 'any', prev: 'directive', next: 'directive' },
+			{ blankLine: 'any', prev: 'import', next: 'import' },
+			{ blankLine: 'any', prev: 'cjs-import', next: 'cjs-import' },
+			{ blankLine: 'any', prev: 'export', next: 'export' },
+			{ blankLine: 'any', prev: 'cjs-export', next: 'cjs-export' },
+			{ blankLine: 'any', prev: 'expression', next: 'expression' },
+			{
 				blankLine: 'never',
 				prev: ['singleline-const', 'singleline-let', 'singleline-var'],
 				next: ['singleline-const', 'singleline-let', 'singleline-var'],
@@ -456,12 +462,6 @@ module.exports = {
 				prev: 'function-overload',
 				next: 'function-overload',
 			},
-			{ blankLine: 'any', prev: 'directive', next: 'directive' },
-			{ blankLine: 'any', prev: 'import', next: 'import' },
-			{ blankLine: 'any', prev: 'cjs-import', next: 'cjs-import' },
-			{ blankLine: 'any', prev: 'export', next: 'export' },
-			{ blankLine: 'any', prev: 'cjs-export', next: 'cjs-export' },
-			{ blankLine: 'any', prev: 'expression', next: 'expression' },
 		],
 
 		//? CodelyTV
