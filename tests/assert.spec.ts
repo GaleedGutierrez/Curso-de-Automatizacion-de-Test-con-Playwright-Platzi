@@ -7,6 +7,7 @@ test('Playing with assertions', async ({ page }) => {
 
 	await expect(FULL_NAME_INPUT).toBeVisible();
 	await FULL_NAME_INPUT.fill('Galeed');
+	// await page.pause();
 	await page.getByRole('button', { name: 'Submit' }).click();
 
 	const OUTPUT_NAME = page.locator('#name');
