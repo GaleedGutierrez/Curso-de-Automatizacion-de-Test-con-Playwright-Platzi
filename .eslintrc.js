@@ -2,6 +2,7 @@
 const TESTING_FILES = [
 	'*.test.ts',
 	'*.spec.ts',
+	'*.spec.tsx',
 	'*.e2e.ts',
 	'*.test.js',
 	'*.spec.js',
@@ -277,11 +278,14 @@ module.exports = {
 
 		// Testing: Playwright
 		{
-			files: TESTING_FILES,
+			files: ['*.spec.ts', '*.spec.tsx'],
 			extends: ['plugin:playwright/recommended'],
-			// rules: {
-			// 	'prefer-equality-matcher': 'error',
-			// },
+			rules: {
+				'playwright/prefer-equality-matcher': 'error',
+				'playwright/prefer-comparison-matcher': 'error',
+				'playwright/prefer-hooks-in-order': 'error',
+				'playwright/prefer-hooks-on-top': 'error',
+			},
 		},
 
 		// Testing: Cypress
