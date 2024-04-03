@@ -4,11 +4,11 @@
 	"description": "Curso de Platzi",
 	"main": "index.js",
 	"scripts": {
-		"lint": "npx eslint ./**/*.{js,mjs,cjs,ts,mts,cts}",
-		"lint:fix": "npx eslint --fix ./**/*.{js,mjs,cjs,ts,mts,cts}",
-		"test": "npx playwright test",
-		"test:headed": "npx playwright test --headed",
-		"codegen": "npx playwright codegen",
+		"lint": "eslint ./**/*.{js,mjs,cjs,ts,mts,cts}",
+		"lint:fix": "eslint --fix ./**/*.{js,mjs,cjs,ts,mts,cts}",
+		"test": "playwright test",
+		"test:headed": "playwright test --headed",
+		"codegen": "playwright codegen",
 		"prepare": "husky"
 	},
 	"keywords": [

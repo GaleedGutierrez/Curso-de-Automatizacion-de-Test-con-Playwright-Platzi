@@ -285,6 +285,7 @@ module.exports = {
 				'playwright/prefer-comparison-matcher': 'error',
 				'playwright/prefer-hooks-in-order': 'error',
 				'playwright/prefer-hooks-on-top': 'error',
+				'playwright/no-page-pause': 'error',
 			},
 		},
 
