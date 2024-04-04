@@ -10,7 +10,20 @@ test.describe('Fist challenge', () => {
 		await page.goto(URL_BASE.href);
 		await page.mouse.wheel(0, SCROLL_DOWN);
 		await page.getByRole('link', { name: 'View Product' }).first().click();
-		await page.waitForURL(URL_PRODUCT_DETAILS_FIRST.href);
+
+		const URL_GOOGLE = 'https://automationexercise.com/#google_vignette';
+		let url = page.url();
+
+		while (url === URL_GOOGLE) {
+			// eslint-disable-next-line no-await-in-loop
+			await page
+				.getByRole('link', { name: 'View Product' })
+				.first()
+				.click();
+
+			url = page.url();
+		}
+
 		await expect(page).toHaveURL(URL_PRODUCT_DETAILS_FIRST.href);
 
 		const QUANTITY_INPUT = page.locator('#quantity');
