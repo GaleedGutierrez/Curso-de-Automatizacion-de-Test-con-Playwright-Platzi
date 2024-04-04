@@ -4,5 +4,5 @@
 /**/*.bundle.js
 /**/index.bundle.*.js
 /**/googleAnalytics.js
-
-
+/test-results/*
+/playwright-report/*

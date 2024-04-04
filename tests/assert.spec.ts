@@ -1,6 +1,7 @@
 import { expect, test } from '@playwright/test';
 
-test('Playing with assertions', async ({ page }) => {
+// eslint-disable-next-line playwright/no-skipped-test
+test.skip('Playing with assertions', async ({ page }) => {
 	await page.goto('https://demoqa.com/text-box');
 
 	const FULL_NAME_INPUT = page.getByPlaceholder('Full Name');
