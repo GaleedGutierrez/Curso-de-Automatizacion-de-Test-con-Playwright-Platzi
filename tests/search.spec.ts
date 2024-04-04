@@ -1,14 +1,16 @@
-import { expect, test } from '@playwright/test';
+import { expect, Locator, test } from '@playwright/test';
 
 const URL_BASE = new URL('https://playwright.dev');
+let searchBox: Locator;
 
 test.beforeEach(async ({ page }) => {
 	await page.goto(URL_BASE.href);
+	await page.getByRole('button', { name: 'Search' }).click();
+	searchBox = page.getByPlaceholder('Search docs');
+	await searchBox.click();
 });
 
 test('Realizar una búsqueda que no tenga resultados', async ({ page }) => {
-	await page.getByLabel('Search').click();
-	await page.getByPlaceholder('Search docs').click();
 	await page.getByPlaceholder('Search docs').fill('hascontent');
 
 	const RESULTS_MESSAGE = page.locator(
@@ -20,29 +22,17 @@ test('Realizar una búsqueda que no tenga resultados', async ({ page }) => {
 });
 
 test('Limpiar el input de búsqueda', async ({ page }) => {
-	await page.getByRole('button', { name: 'Search' }).click();
-
-	const SEARCH_BOX = page.getByPlaceholder('Search docs');
-
-	await SEARCH_BOX.click();
-	await SEARCH_BOX.fill('somerandomtext');
-	await expect(SEARCH_BOX).toHaveValue('somerandomtext');
+	await searchBox.fill('somerandomtext');
+	await expect(searchBox).toHaveValue('somerandomtext');
 	await page.getByRole('button', { name: 'Clear the query' }).click();
-	await expect(SEARCH_BOX).toHaveAttribute('value', '');
+	await expect(searchBox).toHaveAttribute('value', '');
 });
 
-test.skip('Realizar una busqueda que genere al menos tenga un resultado', async ({
+test('Realizar una búsqueda que genere al menos tenga un resultado', async ({
 	page,
 }) => {
-	await page.getByRole('button', { name: 'Search ' }).click();
-
-	const searchBox = page.getByPlaceholder('Search docs');
-
-	await searchBox.click();
-
 	await page.getByPlaceholder('Search docs').fill('havetext');
-
-	await expect(searchBox).toHaveText('havetext');
+	await expect(searchBox).toHaveValue('havetext');
 
 	// Verity there are sections in the results
 	await page
@@ -50,10 +40,9 @@ test.skip('Realizar una busqueda que genere al menos tenga un resultado', async 
 		.nth(1)
 		.waitFor();
 
-	const numberOfResults = await page
+	const NUMBER_OF_RESULTS = await page
 		.locator('.DocSearch-Dropdown-Container section')
 		.count();
 
-	// eslint-disable-next-line @typescript-eslint/no-confusing-void-expression, @typescript-eslint/await-thenable
-	await expect(numberOfResults).toBeGreaterThan(0);
+	expect(NUMBER_OF_RESULTS).toBeGreaterThan(0);
 });
