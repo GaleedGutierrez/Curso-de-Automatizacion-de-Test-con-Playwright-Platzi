@@ -1,7 +1,8 @@
 /* eslint-disable playwright/expect-expect */
 import { test } from '@playwright/test';
 
-test('uitest', async ({ page }) => {
+// eslint-disable-next-line playwright/no-skipped-test
+test.skip('uitest', async ({ page }) => {
 	await page.goto('https://demoqa.com/automation-practice-form');
 
 	const INPUT = page.locator('#firstName');

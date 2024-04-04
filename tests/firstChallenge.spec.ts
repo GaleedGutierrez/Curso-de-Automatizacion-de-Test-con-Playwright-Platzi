@@ -3,6 +3,7 @@ import { expect, test } from '@playwright/test';
 const URL_BASE = new URL('https://automationexercise.com');
 const URL_PRODUCT_DETAILS_FIRST = new URL('/product_details/1', URL_BASE);
 
+// eslint-disable-next-line playwright/no-skipped-test
 test.describe.skip('Fist challenge', () => {
 	test('Add product to cart', async ({ page }) => {
 		const SCROLL_DOWN = 640;
