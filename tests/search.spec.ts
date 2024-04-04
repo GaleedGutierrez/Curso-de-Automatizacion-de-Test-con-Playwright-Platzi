@@ -11,28 +11,24 @@ test('Realizar una búsqueda que no tenga resultados', async ({ page }) => {
 	await page.getByPlaceholder('Search docs').click();
 	await page.getByPlaceholder('Search docs').fill('hascontent');
 
-	const NO_RESULTS_MESSAGE = page.locator(
+	const RESULTS_MESSAGE = page.locator(
 		'.DocSearch-NoResults p.DocSearch-Title',
 	);
 
-	await expect(NO_RESULTS_MESSAGE).toBeVisible();
-	await expect(NO_RESULTS_MESSAGE).toHaveText('No results for "hascontent"');
+	await expect(RESULTS_MESSAGE).toBeVisible();
+	await expect(RESULTS_MESSAGE).toHaveText('No results for "hascontent"');
 });
 
-test.skip('Limpiar el input de busqueda', async ({ page }) => {
+test('Limpiar el input de búsqueda', async ({ page }) => {
 	await page.getByRole('button', { name: 'Search' }).click();
 
-	const searchBox = page.getByPlaceholder('Search docs');
+	const SEARCH_BOX = page.getByPlaceholder('Search docs');
 
-	await searchBox.click();
-
-	await searchBox.fill('somerandomtext');
-
-	await expect(searchBox).toHaveText('somerandomtext');
-
+	await SEARCH_BOX.click();
+	await SEARCH_BOX.fill('somerandomtext');
+	await expect(SEARCH_BOX).toHaveValue('somerandomtext');
 	await page.getByRole('button', { name: 'Clear the query' }).click();
-
-	await expect(searchBox).toHaveAttribute('value', '');
+	await expect(SEARCH_BOX).toHaveAttribute('value', '');
 });
 
 test.skip('Realizar una busqueda que genere al menos tenga un resultado', async ({
