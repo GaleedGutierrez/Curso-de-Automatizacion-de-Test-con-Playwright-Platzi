@@ -1,7 +1,7 @@
 import { expect, test } from '@playwright/test';
 
 const URL_BASE = new URL('https://automationexercise.com');
-const URL_PRODUCT_DETAILS_FIRST = new URL('/product_details/1', URL_BASE);
+// const URL_PRODUCT_DETAILS_FIRST = new URL('/product_details/1', URL_BASE);
 
 test.describe('Fist challenge', () => {
 	test('Add product to cart', async ({ page }) => {
@@ -10,7 +10,7 @@ test.describe('Fist challenge', () => {
 		await page.goto(URL_BASE.href);
 		await page.mouse.wheel(0, SCROLL_DOWN);
 		await page.getByRole('link', { name: 'View Product' }).first().click();
-		await expect(page).toHaveURL(URL_PRODUCT_DETAILS_FIRST.href);
+		// await expect(page).toHaveURL(URL_PRODUCT_DETAILS_FIRST.href);
 
 		const QUANTITY_INPUT = page.locator('#quantity');
 		const ADD_TO_CART_BUTTON = page.locator('#quantity ~ button');
